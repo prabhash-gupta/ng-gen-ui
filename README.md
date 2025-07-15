@@ -1,18 +1,23 @@
-# NgGenUiComponents
+
+# NgGenUi
 
 Reusable Angular Material UI components library for Angular 19+ projects.
 
 ## Features
 - Standalone, generic, and reusable Angular Material components
 - Easy integration into any Angular project
-- Includes input and date-picker components (more coming soon)
+- Includes input, date-picker, and single select components (more coming soon)
 
 ## Installation
 
-Install the package from npm:
-
+### From npm (public)
 ```bash
-npm install ng-gen-ui-components
+npm install ng-gen-ui
+```
+
+### From GitHub Packages
+```bash
+npm install @prabhash-gupta/ng-gen-ui --registry=https://npm.pkg.github.com/
 ```
 
 > **Peer dependencies:**
@@ -27,7 +32,8 @@ Ensure your app imports `BrowserAnimationsModule` and has Angular Material set u
 
 #### Input Component
 ```typescript
-import { NgGenUiInputComponent } from 'ng-gen-ui-components';
+import { NgGenUiInputComponent } from 'ng-gen-ui';
+// or from '@prabhash-gupta/ng-gen-ui' if using GitHub Packages
 ```
 
 ```html
@@ -43,7 +49,8 @@ import { NgGenUiInputComponent } from 'ng-gen-ui-components';
 
 #### Date Picker Component
 ```typescript
-import { NgGenUiDatePickerComponent } from 'ng-gen-ui-components';
+import { NgGenUiDatePickerComponent } from 'ng-gen-ui';
+// or from '@prabhash-gupta/ng-gen-ui' if using GitHub Packages
 ```
 
 ```html
@@ -53,6 +60,31 @@ import { NgGenUiDatePickerComponent } from 'ng-gen-ui-components';
   [disabled]="false"
   hint="Select your birth date"
 ></ng-gen-ui-date-picker>
+```
+
+#### Single Select Component
+```typescript
+import { NgGenUiSingleSelectComponent, NgGenUiSelectOption } from 'ng-gen-ui';
+// or from '@prabhash-gupta/ng-gen-ui' if using GitHub Packages
+```
+
+```html
+<ng-gen-ui-single-select
+  label="Country"
+  [options]="countryOptions"
+  [(value)]="selectedCountry"
+  placeholder="Select a country"
+  [disabled]="false"
+></ng-gen-ui-single-select>
+```
+
+```typescript
+countryOptions: NgGenUiSelectOption[] = [
+  { value: 'in', label: 'India' },
+  { value: 'us', label: 'USA' },
+  { value: 'uk', label: 'UK' }
+];
+selectedCountry = null;
 ```
 
 ### 3. Standalone Usage
@@ -83,17 +115,33 @@ You can use these components in standalone components or modules. Just add them 
 | autocomplete  | string      | Autocomplete attribute            |
 | hint          | string      | Hint text                         |
 
+### NgGenUiSingleSelectComponent
+| Input         | Type                        | Description                       |
+|-------------- |----------------------------|-----------------------------------|
+| label         | string                      | Field label                       |
+| placeholder   | string                      | Placeholder text                  |
+| value         | any                         | Selected value (two-way binding)  |
+| options       | NgGenUiSelectOption[]       | Options for the select            |
+| disabled      | boolean                     | Disable the select                |
+
 ## Building the Library
 
 ```bash
-ng build ng-gen-ui-components
+ng build ng-gen-ui
 ```
 
 ## Publishing
 
+### To npm (public)
 ```bash
-cd dist/ng-gen-ui-components
+cd dist/ng-gen-ui
 npm publish --access public
+```
+
+### To GitHub Packages
+```bash
+cd dist/ng-gen-ui
+npm publish --access public --registry=https://npm.pkg.github.com/
 ```
 
 ## Contributing
