@@ -1,6 +1,28 @@
 {
   "name": "ng-gen-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "description": "Reusable Angular Material UI components library.",
+  "author": "Prabhash Gupta <prabhash.gupta@outlook.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prabhash-gupta/ng-gen-ui.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "material",
+    "ui",
+    "shared",
+    "components",
+    "library",
+    "ng-gen-ui",
+    "prabhash",
+    "prabhash-gupta"
+  ],
+  "homepage": "https://github.com/prabhash-gupta/ng-gen-ui#readme",
+  "bugs": {
+    "url": "https://github.com/prabhash-gupta/ng-gen-ui/issues"
+  },
   "peerDependencies": {
     "@angular/common": "^19.2.0",
     "@angular/core": "^19.2.0"
