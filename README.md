@@ -1,59 +1,105 @@
-# NgGenUi
+# NgGenUiComponents
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+Reusable Angular Material UI components library for Angular 19+ projects.
 
-## Development server
+## Features
+- Standalone, generic, and reusable Angular Material components
+- Easy integration into any Angular project
+- Includes input and date-picker components (more coming soon)
 
-To start a local development server, run:
+## Installation
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Install the package from npm:
 
 ```bash
-ng generate component component-name
+npm install ng-gen-ui-components
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+> **Peer dependencies:**
+> Make sure your project uses Angular 19+ and Angular Material 19+.
+
+## Usage
+
+### 1. Import Angular Material Modules
+Ensure your app imports `BrowserAnimationsModule` and has Angular Material set up.
+
+### 2. Import and Use Components
+
+#### Input Component
+```typescript
+import { NgGenUiInputComponent } from 'ng-gen-ui-components';
+```
+
+```html
+<ng-gen-ui-input
+  label="Username"
+  placeholder="Enter your username"
+  [(value)]="username"
+  [type]="'text'"
+  [disabled]="false"
+  hint="This will be your login ID"
+></ng-gen-ui-input>
+```
+
+#### Date Picker Component
+```typescript
+import { NgGenUiDatePickerComponent } from 'ng-gen-ui-components';
+```
+
+```html
+<ng-gen-ui-date-picker
+  label="Date of Birth"
+  [(value)]="dob"
+  [disabled]="false"
+  hint="Select your birth date"
+></ng-gen-ui-date-picker>
+```
+
+### 3. Standalone Usage
+You can use these components in standalone components or modules. Just add them to the `imports` array of your component.
+
+## API Reference
+
+### NgGenUiInputComponent
+| Input         | Type     | Description                       |
+|-------------- |----------|-----------------------------------|
+| label         | string   | Field label                       |
+| placeholder   | string   | Placeholder text                  |
+| value         | string   | Input value (two-way binding)     |
+| type          | string   | Input type (text, password, etc.) |
+| disabled      | boolean  | Disable the input                 |
+| maxlength     | number   | Max length                        |
+| minlength     | number   | Min length                        |
+| autocomplete  | string   | Autocomplete attribute            |
+| hint          | string   | Hint text                         |
+
+### NgGenUiDatePickerComponent
+| Input         | Type        | Description                       |
+|-------------- |------------|-----------------------------------|
+| label         | string      | Field label                       |
+| placeholder   | string      | Placeholder text                  |
+| value         | Date \| null | Date value (two-way binding)      |
+| disabled      | boolean     | Disable the picker                |
+| autocomplete  | string      | Autocomplete attribute            |
+| hint          | string      | Hint text                         |
+
+## Building the Library
 
 ```bash
-ng generate --help
+ng build ng-gen-ui-components
 ```
 
-## Building
-
-To build the project run:
+## Publishing
 
 ```bash
-ng build
+cd dist/ng-gen-ui-components
+npm publish --access public
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Contributing
 
-## Running unit tests
+Contributions are welcome! Please open issues or submit pull requests on [GitHub](https://github.com/prabhash-gupta/ng-gen-ui).
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## License
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT

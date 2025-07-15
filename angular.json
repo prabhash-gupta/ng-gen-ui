@@ -97,6 +97,39 @@
           }
         }
       }
+    },
+    "ng-gen-ui-components": {
+      "projectType": "library",
+      "root": "projects/ng-gen-ui-components",
+      "sourceRoot": "projects/ng-gen-ui-components/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ng-gen-ui-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-gen-ui-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-gen-ui-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/ng-gen-ui-components/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   }
 }
